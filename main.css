@@ -1,9 +1,14 @@
+:root {
+  --gridcolumns: 16;
+  --gridrows: 16;
+}
+
 #gridContainer {
   display: grid;
   height: 640px;
   width: 640px;
-  grid-template-columns: repeat(auto-fit, 40px);
-  grid-template-rows: repeat(auto-fit, 40px);
+  grid-template-columns: repeat(var(--gridcolumns), 1fr);
+  grid-template-rows: repeat(var(--gridrows), 1fr);
   outline: 1px red dotted;
 }
 .gridCell {
