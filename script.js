@@ -57,7 +57,10 @@ function Grid() {
   while (gridCells < 1 || gridCells > 100 ){
     gridCells = prompt("Choose grid size between 1 and 100.");
   }
-
+  const cellsToRemove = document.querySelectorAll(".gridCell");
+  for(let j = 0; j < cellsToRemove.length; j++){
+  cellsToRemove[j].remove()
+  }
   gridSquares = gridCells * gridCells;
 
   for (let i = 0; i < gridSquares; i++) {
