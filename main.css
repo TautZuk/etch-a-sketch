@@ -2,6 +2,11 @@
   --gridcolumns: 16;
   --gridrows: 16;
 }
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #gridContainer {
   display: grid;
@@ -13,4 +18,8 @@
 }
 .gridCell {
   outline: 0.2px grey solid;
+}
+
+button {
+  margin: 1em;
 }
