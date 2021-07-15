@@ -1,4 +1,4 @@
-//Grid creation
+//initial Grid creation
 let gridCells = 16;
 let gridSquares = gridCells * gridCells;
 const gridContainer = document.querySelector("#gridContainer");
@@ -17,6 +17,10 @@ newGrid.addEventListener("click", Grid);
 const clearGrid = document.querySelector("#clearGrid");
 clearGrid.addEventListener("click", clean);
 
+// event listener for rainbow cells
+const rainbowCells = document.querySelector("#rainbowCells")
+rainbowCells.addEventListener("click", rainbow)
+
 //Setting css variables
 document.documentElement.style.setProperty("--gridcolumns", gridCells);
 document.documentElement.style.setProperty("--gridrows", gridCells);
@@ -25,7 +29,7 @@ document.documentElement.style.setProperty("--gridrows", gridCells);
 const itemHover = document.querySelectorAll(".gridCell");
 
 for(let j = 0; j < itemHover.length; j++){
-    itemHover[j].addEventListener("mousemove", function (e) {
+    itemHover[j].addEventListener("mouseenter", function (e) {
       e.target.style.backgroundColor = "black";
   });
 };
@@ -61,8 +65,27 @@ function Grid() {
 
   for(let j = 0; j < itemHover.length; j++){
   itemHover[j].style.backgroundColor = "white";
-  itemHover[j].addEventListener("mousemove", function (e) {
+  itemHover[j].addEventListener("mouseenter", function (e) {
       e.target.style.backgroundColor = "black";
   });
+};
+};
+
+// random color function that I got from SO like a real dev, LOL.
+function randomColor() {
+  let num = Math.round(0xffffff * Math.random());
+  let r = num >> 16;
+  let g = num >> 8 & 255;
+  let b = num & 255;
+  return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+};
+
+function rainbow() {
+  const itemHover = document.querySelectorAll(".gridCell");
+
+  for (let j = 0; j < itemHover.length; j++){
+  itemHover[j].addEventListener("mouseenter", function (e) {
+      e.target.style.backgroundColor = randomColor();
+});
 };
 };
