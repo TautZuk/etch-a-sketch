@@ -13,6 +13,14 @@ for (let i = 0; i < gridSquares; i++) {
 const newGrid = document.querySelector("#newGrid");
 newGrid.addEventListener("click", Grid);
 
+// event listener for black color button
+const blackButton = document.querySelector("#black");
+blackButton.addEventListener("click", changeColor);
+
+// add event listener for eraser button
+const eraser = document.querySelector("#white");
+eraser.addEventListener("click", changeColor);
+
 // event listener for clear Grid button
 const clearGrid = document.querySelector("#clearGrid");
 clearGrid.addEventListener("click", clean);
@@ -86,6 +94,17 @@ function rainbow() {
   for (let j = 0; j < itemHover.length; j++){
   itemHover[j].addEventListener("mouseenter", function (e) {
       e.target.style.backgroundColor = randomColor();
+});
+};
+};
+
+function changeColor () {
+  changedColor = this.id;
+  const itemHover = document.querySelectorAll(".gridCell");
+
+  for (let j = 0; j < itemHover.length; j++){
+  itemHover[j].addEventListener("mouseenter", function (e) {
+      e.target.style.backgroundColor = changedColor;
 });
 };
 };
