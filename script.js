@@ -21,13 +21,13 @@ blackButton.addEventListener("click", changeColor);
 const eraser = document.querySelector("#white");
 eraser.addEventListener("click", changeColor);
 
-// event listener for clear Grid button
+// add event listener for clear Grid button
 const clearGrid = document.querySelector("#clearGrid");
 clearGrid.addEventListener("click", clean);
 
-// event listener for rainbow cells
-const rainbowCells = document.querySelector("#rainbowCells")
-rainbowCells.addEventListener("click", rainbow)
+// add event listener for rainbow cells
+const rainbowCells = document.querySelector("#rainbowCells");
+rainbowCells.addEventListener("click", rainbow);
 
 //Setting css variables
 document.documentElement.style.setProperty("--gridcolumns", gridCells);
@@ -47,20 +47,22 @@ function clean() {
   const itemHover = document.querySelectorAll(".gridCell");
 
   for(let j = 0; j < itemHover.length; j++){
-  itemHover[j].style.backgroundColor = "white";}
+    itemHover[j].style.backgroundColor = "white";}
 
-}
+};
 //New grid function
 function Grid() {
   gridCells = prompt("Choose grid size between 1 and 100.");
 
   while (gridCells < 1 || gridCells > 100 ){
     gridCells = prompt("Choose grid size between 1 and 100.");
-  }
+  };
+
   const cellsToRemove = document.querySelectorAll(".gridCell");
   for(let j = 0; j < cellsToRemove.length; j++){
-  cellsToRemove[j].remove()
-  }
+    cellsToRemove[j].remove();
+  };
+
   gridSquares = gridCells * gridCells;
 
   for (let i = 0; i < gridSquares; i++) {
@@ -75,11 +77,11 @@ function Grid() {
   const itemHover = document.querySelectorAll(".gridCell");
 
   for(let j = 0; j < itemHover.length; j++){
-  itemHover[j].style.backgroundColor = "white";
-  itemHover[j].addEventListener("mouseenter", function (e) {
+    itemHover[j].style.backgroundColor = "white";
+    itemHover[j].addEventListener("mouseenter", function (e) {
       e.target.style.backgroundColor = "black";
-  });
-};
+    });
+  };
 };
 
 // random color function that I got from SO like a real dev, LOL.
@@ -94,20 +96,20 @@ function randomColor() {
 function rainbow() {
   const itemHover = document.querySelectorAll(".gridCell");
 
-  for (let j = 0; j < itemHover.length; j++){
-  itemHover[j].addEventListener("mouseenter", function (e) {
-      e.target.style.backgroundColor = randomColor();
-});
-};
+    for (let j = 0; j < itemHover.length; j++){
+      itemHover[j].addEventListener("mouseenter", function (e) {
+        e.target.style.backgroundColor = randomColor();
+    });
+  };
 };
 
 function changeColor () {
   changedColor = this.id;
   const itemHover = document.querySelectorAll(".gridCell");
 
-  for (let j = 0; j < itemHover.length; j++){
-  itemHover[j].addEventListener("mouseenter", function (e) {
-      e.target.style.backgroundColor = changedColor;
-});
-};
+    for (let j = 0; j < itemHover.length; j++){
+      itemHover[j].addEventListener("mouseenter", function (e) {
+        e.target.style.backgroundColor = changedColor;
+    });
+  };
 };

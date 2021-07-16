@@ -1,7 +1,3 @@
-:root {
-  --gridcolumns: 16;
-  --gridrows: 16;
-}
 body {
   display: flex;
   flex-direction: column;
@@ -14,10 +10,11 @@ body {
   width: 640px;
   grid-template-columns: repeat(var(--gridcolumns), 1fr);
   grid-template-rows: repeat(var(--gridrows), 1fr);
-  outline: 1px red dotted;
+  grid-gap: 1px;
+  border: 2px black solid;
 }
 .gridCell {
-  outline: 0.2px grey solid;
+  border: 1px black solid;
 }
 
 button {
