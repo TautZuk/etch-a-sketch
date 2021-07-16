@@ -38,7 +38,7 @@ const itemHover = document.querySelectorAll(".gridCell");
 
 for(let j = 0; j < itemHover.length; j++){
     itemHover[j].addEventListener("mouseenter", function (e) {
-      e.target.style.backgroundColor = "black";
+      e.target.style.backgroundColor = "rgb(0,0,0)";
   });
 };
 // Clean grid function
@@ -47,7 +47,7 @@ function clean() {
   const itemHover = document.querySelectorAll(".gridCell");
 
   for(let j = 0; j < itemHover.length; j++){
-    itemHover[j].style.backgroundColor = "white";}
+    itemHover[j].style.backgroundColor = "rgb(255,255,255)";}
 
 };
 //New grid function
@@ -77,9 +77,20 @@ function Grid() {
   const itemHover = document.querySelectorAll(".gridCell");
 
   for(let j = 0; j < itemHover.length; j++){
-    itemHover[j].style.backgroundColor = "white";
+    itemHover[j].style.backgroundColor = "rgb(255,255,255)";
     itemHover[j].addEventListener("mouseenter", function (e) {
-      e.target.style.backgroundColor = "black";
+      e.target.style.backgroundColor = "rgb(0,0,0)";
+    });
+  };
+};
+
+// rainbow cell fuction
+function rainbow() {
+  const itemHover = document.querySelectorAll(".gridCell");
+
+    for (let j = 0; j < itemHover.length; j++){
+      itemHover[j].addEventListener("mouseenter", function (e) {
+        e.target.style.backgroundColor = randomColor();
     });
   };
 };
@@ -93,16 +104,7 @@ function randomColor() {
   return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 };
 
-function rainbow() {
-  const itemHover = document.querySelectorAll(".gridCell");
-
-    for (let j = 0; j < itemHover.length; j++){
-      itemHover[j].addEventListener("mouseenter", function (e) {
-        e.target.style.backgroundColor = randomColor();
-    });
-  };
-};
-
+//function for black and eraser color
 function changeColor () {
   changedColor = this.id;
   const itemHover = document.querySelectorAll(".gridCell");
