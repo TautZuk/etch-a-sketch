@@ -52,10 +52,10 @@ function clean() {
 };
 //New grid function
 function Grid() {
-  gridCells = prompt("Choose grid size between 1 and 100.");
+  gridCells = prompt("Choose grid size between 1 and 60.");
 
-  while (gridCells < 1 || gridCells > 100 ){
-    gridCells = prompt("Choose grid size between 1 and 100.");
+  while (gridCells < 1 || gridCells > 60){
+    gridCells = prompt("Choose grid size between 1 and 60.");
   };
 
   const cellsToRemove = document.querySelectorAll(".gridCell");
