@@ -1,6 +1,7 @@
 //initial Grid creation
 let gridCells = 16;
 let gridSquares = gridCells * gridCells;
+let isMouseDown = false;
 const gridContainer = document.querySelector("#gridContainer");
 
 for (let i = 0; i < gridSquares; i++) {
@@ -33,12 +34,27 @@ rainbowCells.addEventListener("click", rainbow);
 document.documentElement.style.setProperty("--gridcolumns", gridCells);
 document.documentElement.style.setProperty("--gridrows", gridCells);
 
+// Check if mouse is down or up
+function mouseCheck (){
+let pageDown = document.querySelector("html")
+pageDown.addEventListener ("mousedown", function(e) {
+  isMouseDown = true
+})
+
+pageDown.addEventListener ("mouseup", function(e) {
+  isMouseDown = false
+})
+}
 // Hover effect
 const itemHover = document.querySelectorAll(".gridCell");
 
 for(let j = 0; j < itemHover.length; j++){
-    itemHover[j].addEventListener("mouseenter", function (e) {
+    itemHover[j].addEventListener("mouseleave", function (e) {
+      mouseCheck()
+      if (isMouseDown == true) { 
+
       e.target.style.backgroundColor = "rgb(0,0,0)";
+      }
   });
 };
 // Clean grid function
@@ -78,19 +94,25 @@ function Grid() {
 
   for(let j = 0; j < itemHover.length; j++){
     itemHover[j].style.backgroundColor = "rgb(255,255,255)";
-    itemHover[j].addEventListener("mouseenter", function (e) {
+    itemHover[j].addEventListener("mouseleave", function (e) {
+      mouseCheck()
+      if (isMouseDown == true) { 
       e.target.style.backgroundColor = "rgb(0,0,0)";
+      }
     });
   };
 };
 
-// rainbow cell fuction
+// rainbow cell function
 function rainbow() {
   const itemHover = document.querySelectorAll(".gridCell");
 
     for (let j = 0; j < itemHover.length; j++){
-      itemHover[j].addEventListener("mouseenter", function (e) {
+      itemHover[j].addEventListener("mouseleave", function (e) {
+        mouseCheck()
+      if (isMouseDown == true) { 
         e.target.style.backgroundColor = randomColor();
+      }
     });
   };
 };
@@ -110,8 +132,11 @@ function changeColor () {
   const itemHover = document.querySelectorAll(".gridCell");
 
     for (let j = 0; j < itemHover.length; j++){
-      itemHover[j].addEventListener("mouseenter", function (e) {
+      itemHover[j].addEventListener("mouseleave", function (e) {
+        mouseCheck()
+      if (isMouseDown == true) { 
         e.target.style.backgroundColor = changedColor;
+      }
     });
   };
 };
